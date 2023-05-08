@@ -6,7 +6,7 @@
     position: absolute;
     top: -30px;
     right: 0;
-    background-image: url(../../../../images/close.svg);
+    background-image: url(../../../images/close.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-color: transparent;
