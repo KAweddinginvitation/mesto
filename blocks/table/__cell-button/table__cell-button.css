@@ -1,4 +1,4 @@
-.table__cell-place_button {
+.table__cell-button {
     margin: 0 20px 0 0;
     padding: 0;
     background-image: url(../../../../images/group.svg);
@@ -11,6 +11,6 @@
     border: 0;
 }
 
-.table__cell-place_button:hover {
+.table__cell-button:hover {
     opacity: 0.5;
 }
