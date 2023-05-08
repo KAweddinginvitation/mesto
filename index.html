@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mestu Russia" />
+    <link href="./pages/index.css" rel="stylesheet" />
+    <title>Mesto</title>
+</head>
+
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img src="./images/logo.svg" alt="Mesto Russia" class="header__logo">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img src="./images/image.jpg" alt="Аватар профиля" class="profile__avatar">
+                <div class="profile__info">
+                    <h1 class="profile__info_title">Жак-Ив Кусто</h1>
+                    <button class="profile__info_edit profile__info_edit-opened"></button>
+                    <h2 class="profile__info_subtitle">Исследователь океана</h2>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+            <section class="elements">
+                <article class="table">
+                    <div class="table__cell">
+                        <img src="./images/river.jpg" class="table__cell_image" alt="Река">
+                        <div class="table__cell_place">
+                            <h3 class="table__cell_place_name">Река</h3>
+                            <button class="table__cell_place_button"></button>
+                        </div>
+                    </div>
+                    <div class="table__cell">
+                        <img src="./images/elbrus.jpg" class="table__cell_image" alt="Вид на гору Эльбрус">
+                        <div class="table__cell_place">
+                            <h3 class="table__cell_place_name">Гора Эльбрус</h3>
+                            <button class="table__cell_place_button"></button>
+                        </div>
+                    </div>
+                    <div class="table__cell">
+                        <img src="./images/dombai.jpg" class="table__cell_image" alt="Донбай">
+                        <div class="table__cell_place">
+                            <h3 class="table__cell_place_name">Домбай</h3>
+                            <button class="table__cell_place_button"></button>
+                        </div>
+                    </div>
+                    <div class="table__cell">
+                        <img src="./images/elbrus.jpg" class="table__cell_image" alt="Вид на гору Эльбрус">
+                        <div class="table__cell_place">
+                            <h3 class="table__cell_place_name">Гора Эльбрус</h3>
+                            <button class="table__cell_place_button"></button>
+                        </div>
+                    </div>
+                    <div class="table__cell">
+                        <img src="./images/krasnoyarskiy.jpg" class="table__cell_image" alt="Красноярский Край">
+                        <div class="table__cell_place">
+                            <h3 class="table__cell_place_name">Красноярский Край</h3>
+                            <button class="table__cell_place_button"></button>
+                        </div>
+                    </div>
+                    <div class="table__cell">
+                        <img src="./images/karachaevsk.jpg" class="table__cell_image" alt="Храм в Карачаевске">
+                        <div class="table__cell_place">
+                            <h3 class="table__cell_place_name">Карачаево-Черкессия</h3>
+                            <button class="table__cell_place_button"></button>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+        <section id="popup" class="popup">
+            <div class="popup__profile">
+                <button class="popup__profile_close"></button>
+                <h2 class="popup__profile_title">Редактировать профиль</h2>
+                <input type="text" class="popup__profile_username" value="Жак-Ив Кусто">
+                <input type="text" class="popup__profile_job" value="Исследователь океана">
+                <button type="submit" class="popup__profile_save">Сохранить</button>
+            </div>
+        </section>
+        <footer class="footer">
+            <p class="footer__author">© 2023 Vladimir Zavaleev</p>
+        </footer>
+    </div>
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>
