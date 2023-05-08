@@ -19,12 +19,12 @@
 
 /* profile */
 @import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__info/_title/profile__info_title.css);
-@import url(../blocks/profile/__info/_subtitle/profile__info_subtitle.css);
-@import url(../blocks/profile/__info/_edit/profile__info_edit.css);
-@import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__info-edit/profile__info-edit.css);
+@import url(../blocks/profile/__info-title/profile__info-title.css);
+@import url(../blocks/profile/__info-subtitle/profile__info-subtitle.css);
 
 /* elements */
 @import url(../blocks/elements/elements.css);
@@ -32,10 +32,10 @@
 /* cards */
 @import url(../blocks/table/table.css);
 @import url(../blocks/table/__cell/table__cell.css);
-@import url(../blocks/table/__cell/image/table__cell_image.css);
-@import url(../blocks/table/__cell/_place/table__cell_place.css);
-@import url(../blocks/table/__cell/_place/_name/table__cell_place_name.css);
-@import url(../blocks/table/__cell/_place/_button/table__cell_place_button.css);
+@import url(../blocks/table/__cell-place/table__cell-place.css);
+@import url(../blocks/table/__cell-place/_name/table__cell-place_name.css);
+@import url(../blocks/table/__cell-place/_button/table__cell-place_button.css);
+@import url(../blocks/table/__cell-image/table__cell-image.css);
 
 /* footer */
 @import url(../blocks/footer/footer.css);
@@ -44,9 +44,9 @@
 /*popup*/
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__opened/popup__opened.css);
+@import url(../blocks/popup/__profile-close/popup__profile-close.css);
+@import url(../blocks/popup/__profile-job/popup__profile-job.css);
+@import url(../blocks/popup/__profile-save/popup__profile-save.css);
+@import url(../blocks/popup/__profile-title/popup__profile-title.css);
+@import url(../blocks/popup/__profile-username/popup__profile-username.css);
 @import url(../blocks/popup/__profile/popup__profile.css);
-@import url(../blocks/popup/__profile/_close/popup__profile_close.css);
-@import url(../blocks/popup/__profile/_job/popup__profile_job.css);
-@import url(../blocks/popup/__profile/_save/popup__profile_save.css);
-@import url(../blocks/popup/__profile/_title/popup__profile_title.css);
-@import url(../blocks/popup/__profile/_username/popup__profile_username.css);
