@@ -31,12 +31,11 @@
 
 /* cards */
 @import url(../blocks/table/table.css);
-@import url(../blocks/table/__cell/table__cell.css);
-@import url(../blocks/table/__cell-place/table__cell-place.css);
-@import url(../blocks/table/__cell-name/table__cell-name.css);
 @import url(../blocks/table/__cell-button/table__cell-button.css);
-
 @import url(../blocks/table/__cell-image/table__cell-image.css);
+@import url(../blocks/table/__cell-name/table__cell-name.css);
+@import url(../blocks/table/__cell-place/table__cell-place.css);
+@import url(../blocks/table/__cell/table__cell.css);
 
 /* footer */
 @import url(../blocks/footer/footer.css);
