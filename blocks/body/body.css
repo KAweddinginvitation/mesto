@@ -1,8 +1,6 @@
 .body {
     background-color: black;
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
     justify-content: center;
     display: flex;
     font-family: "Inter", "Helvetica", "Arial", sans-serif;

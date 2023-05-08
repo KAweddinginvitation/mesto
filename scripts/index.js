@@ -1,18 +1,18 @@
 const popup = document.querySelector('.popup');
-const buttonPopupOpen = document.querySelector('.profile__info-opened')
+const buttonPopupOpen = document.querySelector('.profile__info-edit')
 const buttonPopupClose = document.querySelector('.popup__profile-close');
 const buttonPopupSave = document.querySelector('.popup__profile-save');
 
 buttonPopupOpen.addEventListener('click', () => {
-    popup.classList.add('popup__opened');
+    popup.classList.add('popup_opened');
 });
 
 buttonPopupClose.addEventListener('click', () => {
-    popup.classList.remove('popup__opened');
+    popup.classList.remove('popup_opened');
 });
 
 buttonPopupSave.addEventListener('click', () => {
-    popup.classList.remove('popup__opened');
+    popup.classList.remove('popup_opened');
 });
 
 document.querySelector('.popup__profile-save').addEventListener('click', userClick);

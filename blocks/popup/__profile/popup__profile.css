@@ -3,11 +3,9 @@
     position: relative;
     flex-direction: column;
     padding: 25px 22px 25px;
-    margin: 123px auto 0;
+    margin: 123px 0 0;
     max-width: 282px;
-    max-height: 322px;
-    width: 100%;
-    height: 100%;
+    min-height: 322px;
     background-color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 10px;
@@ -17,8 +15,8 @@
 @media (min-width: 1024px) {
     .popup__profile {
         padding: 34px 36px 36px;
-        margin: 195px auto 0;
+        margin: 195px 0 0;
         max-width: 430px;
-        max-height: 330px;
+        min-height: 330px;
     }
 }
