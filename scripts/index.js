@@ -12,6 +12,10 @@ let descriptionInput = document.getElementById('description');
 const userName = document.querySelector('.profile__title');
 const userJob = document.querySelector('.profile__subtitle');
 
+function closeForm() {
+    popup.classList.remove('popup_opened');
+}
+
 // открытие
 buttonPopupOpen.addEventListener('click', () => {
     popup.classList.add('popup_opened');
@@ -20,14 +24,8 @@ buttonPopupOpen.addEventListener('click', () => {
 });
 // закрытие
 buttonPopupClose.addEventListener('click', () => {
-    popup.classList.remove('popup_opened');
+    closeForm();
 });
-
-
-
-function closeForm() {
-    popup.classList.remove('popup_opened');
-}
 
 // Находим форму в DOM
 const formElement = document.getElementById('form');

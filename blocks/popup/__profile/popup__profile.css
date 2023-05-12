@@ -3,7 +3,6 @@
     position: relative;
     flex-direction: column;
     padding: 25px 22px 25px;
-    margin: 123px 0 0;
     max-width: 282px;
     min-height: 322px;
     background-color: #FFFFFF;
@@ -15,7 +14,6 @@
 @media (min-width: 1024px) {
     .popup__profile {
         padding: 34px 36px 36px;
-        margin: 195px 0 0;
         max-width: 430px;
         min-height: 330px;
     }
