@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding: 0 19px 0;
+    padding: 0;
     box-sizing: border-box;
     width: 100%;
     max-width: 320px;
@@ -11,6 +11,7 @@
 @media (min-width: 768px) {
     .page {
         max-width: 768px;
+        padding: 0 19px 0;
     }
 }
 
