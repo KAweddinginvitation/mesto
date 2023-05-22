@@ -129,12 +129,12 @@ initialCards.forEach((item) => {
 })
 
 
-const buttonCardDelete = document.querySelector('card_delete');
+/* const buttonCardDelete = document.querySelector('card_delete');
 
   
 buttonCardDelete.addEventListener('click', () => {
   item.remove();
-});
+}); */
 
 
 // поля формы popupCard
