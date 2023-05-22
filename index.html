@@ -27,60 +27,86 @@
             </section>
             <section class="elements">
                 <ul class="elements__list">
-                    <li class="card">
+                    <!--      <li class="card">
+                        <button type="button" class="card__delete"></button>
                         <img src="./images/river.jpg" class="card__image" alt="Река">
                         <div class="card__place">
-                            <h3 class="card__place-name">Река</h3>
-                            <button type="button" class="card__place-button"></button>
+                            <h3 class="card__name">Река</h3>
+                            <button type="button" class="card__like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img src="./images/elbrus.jpg" class="card__image" alt="Вид на гору Эльбрус">
                         <div class="card__place">
-                            <h3 class="card__place-name">Гора Эльбрус</h3>
-                            <button type="button" class="card__place-button"></button>
+                            <h3 class="card__name">Гора Эльбрус</h3>
+                            <button type="button" class="card__like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img src="./images/dombai.jpg" class="card__image" alt="Донбай">
                         <div class="card__place">
-                            <h3 class="card__place-name">Домбай</h3>
-                            <button type="button" class="card__place-button"></button>
+                            <h3 class="card__name">Домбай</h3>
+                            <button type="button" class="card__like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img src="./images/elbrus.jpg" class="card__image" alt="Вид на гору Эльбрус">
                         <div class="card__place">
-                            <h3 class="card__place-name">Гора Эльбрус</h3>
-                            <button type="button" class="card__place-button"></button>
+                            <h3 class="card__name">Гора Эльбрус</h3>
+                            <button type="button" class="card__like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img src="./images/krasnoyarskiy.jpg" class="card__image" alt="Красноярский Край">
                         <div class="card__place">
-                            <h3 class="card__place-name">Красноярский Край</h3>
-                            <button type="button" class="card__place-button"></button>
+                            <h3 class="card__name">Красноярский Край</h3>
+                            <button type="button" class="card__like"></button>
                         </div>
                     </li>
                     <li class="card">
                         <img src="./images/karachaevsk.jpg" class="card__image" alt="Храм в Карачаевске">
                         <div class="card__place">
-                            <h3 class="card__place-name">Карачаево-Черкессия</h3>
-                            <button type="button" class="card__place-button"></button>
+                            <h3 class="card__name">Карачаево-Черкессия</h3>
+                            <button type="button" class="card__like"></button>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
 
             </section>
         </main>
-        <section id="popup" class="popup">
-            <div class="popup__profile">
-                <button type="button" class="popup__close"></button>
+        <template id="card">
+
+            <li class="card">
+                <button type="button" class="card__delete" id="card_delete"></button>
+                <img src="#" class="card__image" alt="">
+                <div class="card__place">
+                    <h3 class="card__name"></h3>
+                    <button type="button" class="card__like"></button>
+                </div>
+            </li>
+
+        </template>
+
+
+        <section class="popup-profile">
+            <div class="popup">
+                <button type="button" class="popup__close" id="profile_close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form" name="form" id="form">
-                    <input name="name" id="name" type="text" class="popup__input">
+                <form class="popup__form" name="form" id="form_profile">
+                    <input name="title" id="title" type="text" class="popup__input">
                     <input name="description" id="description" type="text" class="popup__input">
                     <button type="submit" class="popup__save">Сохранить</button>
+                </form>
+            </div>
+        </section>
+        <section class="popup-card">
+            <div class="popup">
+                <button type="button" class="popup__close" id="card_close"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__form" name="form" id="form_card">
+                    <input name="name" id="name" type="text" class="popup__input" placeholder="Название">
+                    <input name="link" id="link" type="text" class="popup__input" placeholder="Ссылка на картинку">
+                    <button type="submit" class="popup__save">Создать</button>
                 </form>
             </div>
         </section>

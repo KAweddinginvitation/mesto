@@ -1,4 +1,4 @@
-.card__place-button {
+.card__like {
     margin: 0 20px 0 0;
     padding: 0;
     background-image: url(../../../images/group.svg);
@@ -11,6 +11,6 @@
     border: 0;
 }
 
-.card__place-button:hover {
+.card__like:hover {
     opacity: 0.5;
 }
