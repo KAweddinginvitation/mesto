@@ -100,59 +100,49 @@ const initialCards = [
 const elementsList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('#card').content;
 
+const itemFromEvent = (evt) => evt.target.closest('.card');
+
 const deleteCard = (evt) => {
-  const item = evt.target.closest('.card');
+  const item = itemFromEvent(evt);
   item.remove();
   console.log('delete');
 }
 
+
+
+
 const renderCard = (todo) => {
-  
+  const cardContent = cardTemplate.cloneNode(true);
+  cardContent.querySelector('.card__name').innerText = todo.name;
+  cardContent.querySelector('.card__image').alt = todo.name;
+  cardContent.querySelector('.card__image').src = todo.link;
+  cardContent.getElementById('card_delete').addEventListener('click', deleteCard);
+  elementsList.append(cardContent);
 }
 
 initialCards.forEach((item) => {
-  const cardContent = cardTemplate.cloneNode(true);
-  cardContent.querySelector('.card__name').innerText = item.name;
-  cardContent.querySelector('.card__image').alt = item.name;
-  cardContent.querySelector('.card__image').src = item.link;
-  cardContent.getElementById('card_delete').addEventListener('click', deleteCard);
-  elementsList.append(cardContent);
-  renderCard;
+  renderCard(item);
 })
 
+const cardObject = { 
+  name: inputName.value, 
+  link: inputLink.value 
+};
 
 
 // поля формы popupCard
-const cardName = document.getElementById('name');
-const cardLink = document.getElementById('link');
-
-// данные карточки
-const cardTitle = document.querySelector('.card__name');
-const cardImage = document.querySelector('.card__image');
+const inputName = document.getElementById('name');
+const inputLink = document.getElementById('link');
 
 // форма карточки
 const formCard = document.getElementById('form_card');
 
-function cardFormSubmit(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  // Выберите элементы, куда должны быть вставлены значения полей
-  // Вставьте новые значения с помощью textContent
-  /* userName.textContent = nameInput.value;
-  userJob.textContent = descriptionInput.value; */
-
-
-  initialCards.unshift(initialCards.item);
+const cardSubmit = (evt) => {
+  evt.preventDefault();
+  inputName.value;
+  inputLink.value;
+  renderCard
   closePopup();
 };
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-formCard.addEventListener('submit', cardFormSubmit);
 
-
-
-
-
-/* const cardElement = cardTemplate.querySelector('.card').cloneNode(true);  */
-
-/* cardElement.querySelector('.card__image').src = 'tinyurl.com/v4pfzwy';
-cardElement.querySelector('.card__name').textContent = 'Дюк Корморант';  */
+formCard.addEventListener('submit', cardSubmit);
