@@ -94,47 +94,32 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  },
 ];
 
 
 const elementsList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('#card').content;
 
+const deleteCard = (evt) => {
+  const item = evt.target.closest('.card');
+  item.remove();
+  console.log('delete');
+}
 
-
+const renderCard = (todo) => {
+  
+}
 
 initialCards.forEach((item) => {
   const cardContent = cardTemplate.cloneNode(true);
   cardContent.querySelector('.card__name').innerText = item.name;
   cardContent.querySelector('.card__image').alt = item.name;
   cardContent.querySelector('.card__image').src = item.link;
-
+  cardContent.getElementById('card_delete').addEventListener('click', deleteCard);
   elementsList.append(cardContent);
+  renderCard;
 })
 
-
-/* const buttonCardDelete = document.querySelector('card_delete');
-
-  
-buttonCardDelete.addEventListener('click', () => {
-  item.remove();
-}); */
 
 
 // поля формы popupCard
