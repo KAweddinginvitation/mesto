@@ -32,7 +32,6 @@ buttonPopupClose.addEventListener('click', () => {
 });
 
 
-
 buttonPopupCard.addEventListener('click', () => {
   popupCard.classList.add('popup_opened');
 });
@@ -43,7 +42,6 @@ buttonPopupOpen.addEventListener('click', () => {
   nameInput.value = userName.textContent;
   descriptionInput.value = userJob.textContent;
 });
-
 
 
 buttonPopupClose.addEventListener('click', () => {
@@ -102,6 +100,7 @@ const cardTemplate = document.querySelector('#card').content;
 
 const itemFromEvent = (evt) => evt.target.closest('.card');
 
+
 const deleteCard = (evt) => {
   const item = itemFromEvent(evt);
   item.remove();
@@ -109,39 +108,37 @@ const deleteCard = (evt) => {
 }
 
 
-
-
-const renderCard = (todo) => {
+const renderCard = (todo, order = 'append') => {
   const cardContent = cardTemplate.cloneNode(true);
   cardContent.querySelector('.card__name').innerText = todo.name;
   cardContent.querySelector('.card__image').alt = todo.name;
   cardContent.querySelector('.card__image').src = todo.link;
   cardContent.getElementById('card_delete').addEventListener('click', deleteCard);
-  elementsList.append(cardContent);
-}
-
-initialCards.forEach((item) => {
-  renderCard(item);
-})
-
-const cardObject = { 
-  name: inputName.value, 
-  link: inputLink.value 
+  elementsList[order](cardContent);
 };
 
 
-// поля формы popupCard
-const inputName = document.getElementById('name');
-const inputLink = document.getElementById('link');
+initialCards.forEach((item) => {
+  renderCard(item);
+});
+
 
 // форма карточки
 const formCard = document.getElementById('form_card');
 
 const cardSubmit = (evt) => {
   evt.preventDefault();
-  inputName.value;
-  inputLink.value;
-  renderCard
+  // поля формы popupCard
+  const inputName = document.getElementById('name');
+  const inputLink = document.getElementById('link');
+  const cardObject = {
+    name: inputName.value,
+    link: inputLink.value,
+  };
+  console.log(cardObject);
+  renderCard(cardObject, 'prepend');
+  inputName.value = '';
+  inputLink.value = '';
   closePopup();
 };
 
