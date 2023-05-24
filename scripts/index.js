@@ -14,18 +14,22 @@ const buttonPopupClose = document.getElementById('profile_close');
 const nameInput = document.getElementById('title');
 const descriptionInput = document.getElementById('description');
 
+
 //данные профиля
 const userName = document.querySelector('.profile__title');
 const userJob = document.querySelector('.profile__subtitle');
+
 
 function closePopup() {
   popupCard.classList.remove('popup_opened');
   popupProfile.classList.remove('popup_opened');
 }
 
+
 buttonCardClose.addEventListener('click', () => {
   closePopup();
 });
+
 
 buttonPopupClose.addEventListener('click', () => {
   closePopup();
@@ -35,6 +39,7 @@ buttonPopupClose.addEventListener('click', () => {
 buttonPopupCard.addEventListener('click', () => {
   popupCard.classList.add('popup_opened');
 });
+
 
 // открытие
 buttonPopupOpen.addEventListener('click', () => {
@@ -114,6 +119,9 @@ const renderCard = (todo, order = 'append') => {
   cardContent.querySelector('.card__image').alt = todo.name;
   cardContent.querySelector('.card__image').src = todo.link;
   cardContent.getElementById('card_delete').addEventListener('click', deleteCard);
+  cardContent.querySelector('.card__like').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('card__like_active');
+  });
   elementsList[order](cardContent);
 };
 

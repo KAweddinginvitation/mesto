@@ -1,7 +1,8 @@
-.card__like {
+.card__like_active {
+    background-image: url(../../../../images/active.svg);
+    opacity: 1;
     margin: 0 20px 0 0;
     padding: 0;
-    background-image: url(../../../images/group.svg);
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center;
@@ -9,9 +10,4 @@
     min-height: 19px;
     cursor: pointer;
     border: 0;
-    transition: 0.3s;
-}
-
-.card__like:hover {
-    opacity: 0.5;
 }
