@@ -1,7 +1,7 @@
 
 // секции popup
-const popupProfile = document.querySelector('.popup-profile');
-const popupCard = document.querySelector('.popup-card');
+const popupProfile = document.getElementById('popup-profile');
+const popupCard = document.getElementById('popup-card');
 
 // кнопки
 const buttonPopupOpen = document.querySelector('.profile__edit');
@@ -14,6 +14,9 @@ const buttonPopupClose = document.getElementById('profile_close');
 const nameInput = document.getElementById('title');
 const descriptionInput = document.getElementById('description');
 
+// поля формы popupCard
+const inputName = document.getElementById('name');
+const inputLink = document.getElementById('link');
 
 //данные профиля
 const userName = document.querySelector('.profile__title');
@@ -23,6 +26,8 @@ const userJob = document.querySelector('.profile__subtitle');
 function closePopup() {
   popupCard.classList.remove('popup_opened');
   popupProfile.classList.remove('popup_opened');
+  inputName.value = '';
+  inputLink.value = '';
 }
 
 
@@ -131,19 +136,17 @@ initialCards.forEach((item) => {
 });
 
 
+
 // форма карточки
 const formCard = document.getElementById('form_card');
 
 const cardSubmit = (evt) => {
   evt.preventDefault();
   // поля формы popupCard
-  const inputName = document.getElementById('name');
-  const inputLink = document.getElementById('link');
   const cardObject = {
     name: inputName.value,
     link: inputLink.value,
   };
-  console.log(cardObject);
   renderCard(cardObject, 'prepend');
   inputName.value = '';
   inputLink.value = '';
