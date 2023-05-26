@@ -2,6 +2,7 @@
 // секции popup
 const popupProfile = document.getElementById('popup-profile');
 const popupCard = document.getElementById('popup-card');
+const popupImage = document.getElementById('popup-image');
 
 // кнопки
 const buttonPopupOpen = document.querySelector('.profile__edit');
