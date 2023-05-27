@@ -9,6 +9,7 @@ const buttonPopupOpen = document.querySelector('.profile__edit');
 const buttonPopupCard = document.querySelector('.profile__button');
 const buttonCardClose = document.getElementById('card_close');
 const buttonPopupClose = document.getElementById('profile_close');
+const buttonImageClose = document.getElementById('image_close');
 
 
 // поля формы popupProfile
@@ -27,9 +28,11 @@ const userJob = document.querySelector('.profile__subtitle');
 function closePopup() {
   popupCard.classList.remove('popup_opened');
   popupProfile.classList.remove('popup_opened');
+  popupImage.classList.remove('popup_opened');
   inputName.value = '';
   inputLink.value = '';
 }
+
 
 
 buttonCardClose.addEventListener('click', () => {
@@ -38,6 +41,10 @@ buttonCardClose.addEventListener('click', () => {
 
 
 buttonPopupClose.addEventListener('click', () => {
+  closePopup();
+});
+
+buttonImageClose.addEventListener('click', () => {
   closePopup();
 });
 
@@ -54,10 +61,6 @@ buttonPopupOpen.addEventListener('click', () => {
   descriptionInput.value = userJob.textContent;
 });
 
-
-buttonPopupClose.addEventListener('click', () => {
-  popupCard.classList.remove('popup_opened');
-});
 
 // Находим форму в DOM
 const formElement = document.getElementById('form_profile');
@@ -127,6 +130,12 @@ const renderCard = (todo, order = 'append') => {
   cardContent.getElementById('card_delete').addEventListener('click', deleteCard);
   cardContent.querySelector('.card__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('card__like_active');
+  });
+  cardContent.querySelector('.card__image').addEventListener('click', () => {
+    popupImage.classList.add('popup_opened');
+    popupImage.querySelector('.popup__description').innerText = todo.name;
+    popupImage.querySelector('.popup__image').src = todo.link;
+    popupImage.querySelector('.popup__image').alt = todo.name;
   });
   elementsList[order](cardContent);
 };

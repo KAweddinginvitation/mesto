@@ -27,49 +27,6 @@
             </section>
             <section class="elements">
                 <ul class="elements__list">
-                    <!--      <li class="card">
-                        <button type="button" class="card__delete"></button>
-                        <img src="./images/river.jpg" class="card__image" alt="Река">
-                        <div class="card__place">
-                            <h3 class="card__name">Река</h3>
-                            <button type="button" class="card__like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/elbrus.jpg" class="card__image" alt="Вид на гору Эльбрус">
-                        <div class="card__place">
-                            <h3 class="card__name">Гора Эльбрус</h3>
-                            <button type="button" class="card__like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/dombai.jpg" class="card__image" alt="Донбай">
-                        <div class="card__place">
-                            <h3 class="card__name">Домбай</h3>
-                            <button type="button" class="card__like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/elbrus.jpg" class="card__image" alt="Вид на гору Эльбрус">
-                        <div class="card__place">
-                            <h3 class="card__name">Гора Эльбрус</h3>
-                            <button type="button" class="card__like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/krasnoyarskiy.jpg" class="card__image" alt="Красноярский Край">
-                        <div class="card__place">
-                            <h3 class="card__name">Красноярский Край</h3>
-                            <button type="button" class="card__like"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/karachaevsk.jpg" class="card__image" alt="Храм в Карачаевске">
-                        <div class="card__place">
-                            <h3 class="card__name">Карачаево-Черкессия</h3>
-                            <button type="button" class="card__like"></button>
-                        </div>
-                    </li> -->
                 </ul>
 
             </section>
@@ -78,7 +35,7 @@
 
             <li class="card">
                 <button type="button" class="card__delete" id="card_delete"></button>
-                <img src="#" class="card__image" alt="">
+                <img src="#" class="card__image" alt="" id="card_image">
                 <div class="card__place">
                     <h3 class="card__name"></h3>
                     <button type="button" class="card__like"></button>
@@ -112,13 +69,11 @@
         </section>
         <section class="popup" id="popup-image">
             <div class="popup__container">
-                <button type="button" class="popup__close" id="card_close"></button>
-                <form class="popup__form" name="form" id="form_card">
-                    <h2 class="popup__title">Новое место</h2>
-                    <input name="name" id="name" type="text" class="popup__input" placeholder="Название">
-                    <input name="link" id="link" type="text" class="popup__input" placeholder="Ссылка на картинку">
-                    <button type="submit" class="popup__save">Создать</button>
-                </form>
+                <button type="button" class="popup__close" id="image_close"></button>
+                <figure class="popup__figure">
+                    <img class="popup__image" src="#" alt="#">
+                    <figcaption class="popup__description"></figcaption>
+                </figure>
             </div>
         </section>
         <footer class="footer">
