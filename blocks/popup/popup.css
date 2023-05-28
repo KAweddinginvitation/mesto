@@ -11,7 +11,6 @@
     width: 100%;
     align-items: center;
     visibility: hidden;
-    background-color: rgba(0, 0, 0, .5);
     transition: visibility 0.4s, opacity 0.4s;
     opacity: 0;
 }
