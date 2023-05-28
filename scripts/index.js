@@ -68,57 +68,27 @@ buttonPopupOpen.addEventListener('click', () => {
 
 
 
-// отправка формы профиля
-function profileFormSubmit(evt) {
-  evt.preventDefault();
-  userName.textContent = nameInput.value;
-  userJob.textContent = descriptionInput.value;
-  closePopup(popupProfile);
-};
-formProfile.addEventListener('submit', profileFormSubmit);
-
-
-
-// отправка формы карточки
-function cardFormSubmit(evt) {
-  evt.preventDefault();
-  // поля формы popupCard
-  const cardObject = {
-    name: inputName.value,
-    link: inputLink.value,
-  };
-  renderCard(cardObject, 'prepend');
-  inputName.value = '';
-  inputLink.value = '';
-  closePopup(popupCard);
-};
-
-formCard.addEventListener('submit', cardFormSubmit);
-
-
-
-
-
-
 const elementsList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('#card').content;
 
-const itemFromEvent = (evt) => evt.target.closest('.card');
 
+function deleteCard(evt) {
 
-const deleteCard = (evt) => {
-  const item = itemFromEvent(evt);
+  const item = evt.target.closest('.card');
+  console.log(item, '1');
   item.remove();
-  console.log('delete');
+  console.log(item, '2');
 }
 
-
-
-const renderCard = (card, order = 'append') => {
+function createCard(card) {
   const cardContent = cardTemplate.cloneNode(true);
-  cardContent.querySelector('.card__name').textContent = card.name;
-  cardContent.querySelector('.card__image').alt = card.name;
-  cardContent.querySelector('.card__image').src = card.link;
+  const cardImage = cardContent.querySelector('.card__image');
+  const cardName = cardContent.querySelector('.card__name');
+
+  cardName.textContent = card.name;
+  cardImage.alt = card.name;
+  cardImage.src = card.link;
+
   cardContent.getElementById('card_delete').addEventListener('click', deleteCard);
   cardContent.querySelector('.card__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('card__like_active');
@@ -129,8 +99,21 @@ const renderCard = (card, order = 'append') => {
     imageOpen.src = card.link;
     imageOpen.alt = card.name;
   });
-  elementsList[order](cardContent);
+  return cardContent;
 };
+
+function renderCard(card) {
+  const newCard = createCard(card);
+  cardAppend(newCard);
+}
+
+function cardPrepend(card) {
+  elementsList.prepend(card)
+}
+
+function cardAppend(card) {
+  elementsList.append(card)
+}
 
 
 initialCards.forEach((item) => {
@@ -138,4 +121,29 @@ initialCards.forEach((item) => {
 });
 
 
+// отправка формы карточки
+function cardFormSubmit(evt) {
+  evt.preventDefault();
+  // поля формы popupCard
+  const cardObject = {
+    name: inputName.value,
+    link: inputLink.value,
+  };
+  const newCard = createCard(cardObject);
+  cardPrepend(newCard);
+  inputName.value = '';
+  inputLink.value = '';
+  closePopup(popupCard);
+};
 
+formCard.addEventListener('submit', cardFormSubmit);
+
+
+// отправка формы профиля
+function profileFormSubmit(evt) {
+  evt.preventDefault();
+  userName.textContent = nameInput.value;
+  userJob.textContent = descriptionInput.value;
+  closePopup(popupProfile);
+};
+formProfile.addEventListener('submit', profileFormSubmit);
