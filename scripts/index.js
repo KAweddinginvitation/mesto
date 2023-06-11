@@ -8,6 +8,13 @@ const popupImage = document.getElementById('popup-image');
 const imageOpen = document.querySelector('.popup__image');
 const imageCaption = document.querySelector('.popup__description');
 
+// форма профиля
+const formProfile = document.getElementById('form_profile');
+
+// форма карточки
+const formCard = document.getElementById('form_card');
+
+
 // кнопки
 const buttonPopupOpen = document.querySelector('.profile__edit');
 const buttonPopupCard = document.querySelector('.profile__button');
@@ -20,16 +27,11 @@ const descriptionInput = document.getElementById('description');
 const inputName = document.getElementById('name');
 const inputLink = document.getElementById('link');
 
-
-// форма профиля
-const formProfile = document.getElementById('form_profile');
-
-//данные профиля
+// данные профиля
 const userName = document.querySelector('.profile__title');
 const userJob = document.querySelector('.profile__subtitle');
 
-// форма карточки
-const formCard = document.getElementById('form_card');
+
 
 // открытие попапа
 function openPopup(popup) {
@@ -56,6 +58,7 @@ buttonPopupCard.addEventListener('click', () => {
   openPopup(popupCard);
   inputName.value = '';
   inputLink.value = '';
+  /* enableValidation(); */
 });
 
 
@@ -64,6 +67,7 @@ buttonPopupOpen.addEventListener('click', () => {
   openPopup(popupProfile);
   nameInput.value = userName.textContent;
   descriptionInput.value = userJob.textContent;
+  /* enableValidation(); */
 });
 
 
@@ -94,7 +98,7 @@ function createCard(card) {
     evt.target.classList.toggle('card__like_active');
   });
   cardContent.querySelector('.card__image').addEventListener('click', () => {
-    popupImage.classList.add('popup_opened');
+    openPopup(popupImage);
     imageCaption.textContent = card.name;
     imageOpen.src = card.link;
     imageOpen.alt = card.name;
@@ -121,10 +125,12 @@ initialCards.forEach((item) => {
 });
 
 
+
+
 // отправка формы карточки
 function cardFormSubmit(evt) {
   evt.preventDefault();
-  // поля формы popupCard
+
   const cardObject = {
     name: inputName.value,
     link: inputLink.value,
@@ -134,14 +140,17 @@ function cardFormSubmit(evt) {
   inputName.value = '';
   inputLink.value = '';
   closePopup(popupCard);
-};
+}
 
 formCard.addEventListener('submit', cardFormSubmit);
+
+
 
 
 // отправка формы профиля
 function profileFormSubmit(evt) {
   evt.preventDefault();
+
   userName.textContent = nameInput.value;
   userJob.textContent = descriptionInput.value;
   closePopup(popupProfile);
