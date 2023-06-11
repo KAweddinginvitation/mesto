@@ -36,17 +36,17 @@ const isValid = (formElement, inputElement, submitButton, validationConfig) => {
     if (!inputElement.validity.valid) {
         showInputError(errorElement, inputElement, inputElement.validationMessage, validationConfig);
         submitButton.classList.add(validationConfig.inactiveButtonClass);
-        buttonPopupCard.setAttribute('disabled', true); // Добавление атрибута disabled
+        submitButton.setAttribute('disabled', true); // Добавление атрибута disabled
         console.log('ERROR');
         return false;
     } else if (inputHasErrorClass(inputElement, errorElement, validationConfig)) {
         hideInputError(errorElement, inputElement, validationConfig);
-        buttonPopupCard.removeAttribute('disabled', false); // Удаление атрибута disabled
+        submitButton.removeAttribute('disabled', true); // Удаление атрибута disabled
         console.log('VALID');
         return true;
     } else {
         console.log('CLEAR');
-        buttonPopupCard.setAttribute('disabled', true); // Добавление атрибута disabled
+        submitButton.setAttribute('disabled', true); // Добавление атрибута disabled
         return true;
     }
 };
@@ -78,7 +78,7 @@ const setEventListeners = (formElement, validationConfig) => {
             if (
                 isValid(formElement, inputElement, submitButton, validationConfig) && validateAllFields(inputList)) {
                 submitButton.classList.remove(validationConfig.inactiveButtonClass);
-                buttonPopupCard.removeAttribute('disabled'); // Добавление атрибута disabled
+                submitButton.removeAttribute('disabled'); // удаление атрибута disabled
             }
         });
     });

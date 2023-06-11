@@ -18,6 +18,7 @@ const formCard = document.getElementById('form_card');
 // кнопки
 const buttonPopupOpen = document.querySelector('.profile__edit');
 const buttonPopupCard = document.querySelector('.profile__button');
+const buttonPopupSave = document.querySelector('.popup__save');
 
 // поля формы popupProfile
 const nameInput = document.getElementById('title');
@@ -38,7 +39,6 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeHandlePopup);
   document.addEventListener('click', closeHandlePopup);
-
 }
 
 
@@ -73,7 +73,7 @@ document.querySelectorAll('.popup__close').forEach(button => {
 buttonPopupCard.addEventListener('click', () => {
   openPopup(popupCard);
   formCard.reset();
-  buttonPopupCard.setAttribute('disabled', true);
+  buttonPopupSave.setAttribute('disabled', true);
 });
 
 
