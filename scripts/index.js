@@ -16,9 +16,9 @@ const formCard = document.getElementById('form_card');
 
 
 // кнопки
-const buttonPopupOpen = document.querySelector('.profile__edit');
+const buttonPopupProfile = document.querySelector('.profile__edit');
 const buttonPopupCard = document.querySelector('.profile__button');
-const buttonPopupSave = document.querySelector('.popup__save');
+const buttonPopupSave = document.getElementById('buttonSave');
 
 // поля формы popupProfile
 const nameInput = document.getElementById('title');
@@ -71,14 +71,15 @@ document.querySelectorAll('.popup__close').forEach(button => {
 
 // открытие popupCard
 buttonPopupCard.addEventListener('click', () => {
-  openPopup(popupCard);
   formCard.reset();
   buttonPopupSave.setAttribute('disabled', true);
+  buttonPopupSave.classList.add('popup__save_disabled');
+  openPopup(popupCard);
 });
 
 
 // открытие popupProfile
-buttonPopupOpen.addEventListener('click', () => {
+buttonPopupProfile.addEventListener('click', () => {
   openPopup(popupProfile);
   nameInput.value = userName.textContent;
   descriptionInput.value = userJob.textContent;
