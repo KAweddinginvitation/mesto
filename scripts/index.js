@@ -36,14 +36,30 @@ const userJob = document.querySelector('.profile__subtitle');
 // открытие попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeHandlePopup);
+  document.addEventListener('click', closeHandlePopup);
+
 }
 
 
 // закрытие попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-
+  document.addEventListener('keydown', closeHandlePopup);
+  document.addEventListener('click', closeHandlePopup);
 }
+
+
+function closeHandlePopup(evt) {
+  if (
+    evt.key === 'Escape' || // здесь закрытие по нажатию на Esc
+    (evt.target.classList.contains('popup') && evt.target.classList.contains('popup_opened')) // закрытие по клику на оверлей
+  ) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
+
 
 
 // поиск кнопок закрытия, добавления слушателя
@@ -56,9 +72,8 @@ document.querySelectorAll('.popup__close').forEach(button => {
 // открытие popupCard
 buttonPopupCard.addEventListener('click', () => {
   openPopup(popupCard);
-  inputName.value = '';
-  inputLink.value = '';
-  /* enableValidation(); */
+  formCard.reset();
+  buttonPopupCard.setAttribute('disabled', true);
 });
 
 
@@ -67,7 +82,6 @@ buttonPopupOpen.addEventListener('click', () => {
   openPopup(popupProfile);
   nameInput.value = userName.textContent;
   descriptionInput.value = userJob.textContent;
-  /* enableValidation(); */
 });
 
 
@@ -108,14 +122,14 @@ function createCard(card) {
 
 function renderCard(card) {
   const newCard = createCard(card);
-  cardAppend(newCard);
+  appendCard(newCard);
 }
 
-function cardPrepend(card) {
+function prependCard(card) {
   elementsList.prepend(card)
 }
 
-function cardAppend(card) {
+function appendCard(card) {
   elementsList.append(card)
 }
 
@@ -128,31 +142,32 @@ initialCards.forEach((item) => {
 
 
 // отправка формы карточки
-function cardFormSubmit(evt) {
+function submitCardForm(evt) {
   evt.preventDefault();
-
+  const formElement = evt.target;
   const cardObject = {
     name: inputName.value,
     link: inputLink.value,
   };
   const newCard = createCard(cardObject);
-  cardPrepend(newCard);
-  inputName.value = '';
-  inputLink.value = '';
+  prependCard(newCard);
   closePopup(popupCard);
+  formElement.reset(); // очищаем форму с помощью метода reset()
 }
 
-formCard.addEventListener('submit', cardFormSubmit);
+formCard.addEventListener('submit', submitCardForm);
 
 
 
 
 // отправка формы профиля
-function profileFormSubmit(evt) {
+function submitFormProfile(evt) {
   evt.preventDefault();
 
   userName.textContent = nameInput.value;
   userJob.textContent = descriptionInput.value;
   closePopup(popupProfile);
 };
-formProfile.addEventListener('submit', profileFormSubmit);
+formProfile.addEventListener('submit', submitFormProfile);
+
+

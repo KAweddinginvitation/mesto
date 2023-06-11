@@ -34,17 +34,19 @@ const inputHasErrorClass = (inputElement, errorElement, validationConfig) => {
 const isValid = (formElement, inputElement, submitButton, validationConfig) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     if (!inputElement.validity.valid) {
-
         showInputError(errorElement, inputElement, inputElement.validationMessage, validationConfig);
         submitButton.classList.add(validationConfig.inactiveButtonClass);
+        buttonPopupCard.setAttribute('disabled', true); // Добавление атрибута disabled
         console.log('ERROR');
         return false;
     } else if (inputHasErrorClass(inputElement, errorElement, validationConfig)) {
         hideInputError(errorElement, inputElement, validationConfig);
+        buttonPopupCard.removeAttribute('disabled', false); // Удаление атрибута disabled
         console.log('VALID');
         return true;
     } else {
         console.log('CLEAR');
+        buttonPopupCard.setAttribute('disabled', true); // Добавление атрибута disabled
         return true;
     }
 };
@@ -69,20 +71,16 @@ const setEventListeners = (formElement, validationConfig) => {
     const submitButton = formElement.querySelector(validationConfig.submitButtonSelector);
     // Обойдём все элементы полученной коллекции
     inputList.forEach((inputElement) => {
-
         // каждому полю добавим обработчик события input
         inputElement.addEventListener('input', () => {
             // Внутри колбэка вызовем isValid,
             // передав ей форму и проверяемый элемент
-            console.log('enableButton', isValid(formElement, inputElement, submitButton, validationConfig));
-            console.log('validateALL', validateAllFields(inputList))
             if (
                 isValid(formElement, inputElement, submitButton, validationConfig) && validateAllFields(inputList)) {
                 submitButton.classList.remove(validationConfig.inactiveButtonClass);
+                buttonPopupCard.removeAttribute('disabled'); // Добавление атрибута disabled
             }
         });
-
-        console.log(inputElement)
     });
 }
 
