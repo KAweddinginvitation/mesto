@@ -33,7 +33,6 @@ const userName = document.querySelector('.profile__title');
 const userJob = document.querySelector('.profile__subtitle');
 
 
-
 // открытие попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -45,21 +44,20 @@ function openPopup(popup) {
 // закрытие попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.addEventListener('keydown', closeHandlePopup);
-  document.addEventListener('click', closeHandlePopup);
+  document.removeEventListener('keydown', closeHandlePopup);
+  document.removeEventListener('click', closeHandlePopup);
 }
 
 
 function closeHandlePopup(evt) {
   if (
     evt.key === 'Escape' || // здесь закрытие по нажатию на Esc
-    (evt.target.classList.contains('popup') && evt.target.classList.contains('popup_opened')) // закрытие по клику на оверлей
+    (evt.target.classList.contains('popup_opened')) // закрытие по клику на оверлей
   ) {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
   }
 }
-
 
 
 // поиск кнопок закрытия, добавления слушателя
@@ -141,7 +139,6 @@ initialCards.forEach((item) => {
 
 
 
-
 // отправка формы карточки
 function submitCardForm(evt) {
   evt.preventDefault();
@@ -157,7 +154,6 @@ function submitCardForm(evt) {
 }
 
 formCard.addEventListener('submit', submitCardForm);
-
 
 
 
