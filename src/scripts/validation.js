@@ -108,3 +108,4 @@ enableValidation({
     errorClass: 'popup__input-error'
 });
 
+export { showInputError, hideInputError, isValid, validateAllFields, setEventListeners, enableValidation };
